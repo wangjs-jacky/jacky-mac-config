@@ -15,6 +15,7 @@ This repository documents the step-by-step process for configuring a new Mac wor
 | 01 | [SSH Remote Connection](./docs/01-SSH远程连接.md) | Connect to new Mac from local machine |
 | 02 | [GitHub Configuration](./docs/02-配置GitHub.md) | Configure Git and SSH keys |
 | 04 | [npm Setup](./docs/04-npm配置安装.md) | One-click npm environment sync |
+| 05 | [Skills Sync](./docs/05-Skills同步.md) | Sync Claude Code skills |
 
 ## Quick Start
 

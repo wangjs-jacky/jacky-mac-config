@@ -15,6 +15,7 @@
 | 01 | [SSH远程连接](./docs/01-SSH远程连接.md) | 从本地连接到新主机 |
 | 02 | [配置GitHub](./docs/02-配置GitHub.md) | 配置 Git 和 SSH 密钥 |
 | 04 | [npm配置安装](./docs/04-npm配置安装.md) | 一键同步 npm 环境 |
+| 05 | [Skills同步](./docs/05-Skills同步.md) | 同步 Claude Code 技能包 |
 
 ## 快速开始
 
