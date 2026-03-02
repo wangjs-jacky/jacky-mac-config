@@ -144,7 +144,8 @@ fi
 
 echo ""
 echo "链接 skills 到全局："
-echo "  cd $SKILLS_REPO && j-skills link --all"
+echo "  cd $SKILLS_REPO"
+echo "  for dir in */; do skill_dir=\"\$HOME/jacky-github/jacky-skills/\${dir%/}\"; if [ -f \"\$skill_dir/SKILL.md\" ]; then j-skills link \"\$skill_dir\"; fi; done"
 
 # ----------------------------------------
 # 完成
