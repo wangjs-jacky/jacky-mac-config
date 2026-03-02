@@ -39,9 +39,10 @@ jacky-mac-config/
     ├── 02-配置GitHub.md
     ├── 04-npm配置安装.md
     └── scripts/           # 配套脚本
-        ├── setup-github-ssh.sh
         ├── setup-passwordless-ssh.sh
-        └── setup-npm.sh
+        ├── setup-github-ssh.sh
+        ├── setup-npm.sh
+        └── setup-claude-skills.sh
 ```
 
 ## 特性
