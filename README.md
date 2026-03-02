@@ -16,6 +16,7 @@ This repository documents the step-by-step process for configuring a new Mac wor
 | 02 | [GitHub Configuration](./docs/02-配置GitHub.md) | Configure Git and SSH keys |
 | 04 | [npm Setup](./docs/04-npm配置安装.md) | One-click npm environment sync |
 | 05 | [Skills Sync](./docs/05-Skills同步.md) | Sync Claude Code skills |
+| 06 | [Claude Global Config](./docs/06-Claude全局配置.md) | Sync CLAUDE.md config |
 
 ## Quick Start
 

@@ -16,7 +16,8 @@
 3. Qv2ray 安装（待完成）
 4. [npm 配置安装](./04-npm配置安装.md)
 5. [Skills 同步](./05-Skills同步.md)
-6. 配置开发环境（待完成）
+6. [Claude 全局配置](./06-Claude全局配置.md)
+7. 配置开发环境（待完成）
 
 ## 配套脚本
 
@@ -72,7 +73,12 @@ ls ~/.claude/skills/ | wc -l
 '
 ```
 
-**注意**：社区 Skills 需要从本地 rsync 同步：
+**注意**：以下内容需要从本地同步：
 ```bash
+# 1. 同步社区 Skills
 rsync -avz ~/.agents/skills/ jacky@$TARGET_IP:~/.agents/skills/
+
+# 2. 同步 CLAUDE.md
+ssh jacky@$TARGET_IP 'mkdir -p ~/.claude'
+scp ~/.claude/CLAUDE.md jacky@$TARGET_IP:~/.claude/CLAUDE.md
 ```
