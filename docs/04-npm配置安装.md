@@ -52,7 +52,7 @@ cd ~/jacky-github/jacky-mac-config/docs/scripts
 nrm use taobao
 ```
 
-### 步骤五：链接 Skills
+### 步骤五：链接 j-skills
 
 ```bash
 # 克隆 jacky-skills 仓库
@@ -70,6 +70,21 @@ done
 
 # 验证
 j-skills link --list
+```
+
+### 步骤六：同步 Claude Code Skills
+
+```bash
+# 同步 .agents/skills（社区 skills）
+# 方式一：从本地电脑 rsync（推荐）
+rsync -avz ~/.agents/skills/ jacky@<目标IP>:~/.agents/skills/
+
+# 方式二：在新电脑上运行脚本
+cd ~/jacky-github/jacky-mac-config/docs/scripts
+./setup-claude-skills.sh
+
+# 验证
+ls ~/.claude/skills/
 ```
 
 ---
@@ -182,6 +197,34 @@ nrm ls          # 查看所有源
 | `j-skills` | Skills 管理工具 |
 | `jacky-proxy` | 代理工具 |
 
+### Claude Code Skills
+
+#### 个人 Skills（jacky-skills）
+
+| Skill | 说明 |
+|-------|------|
+| `agent-browser-troubleshooting` | agent-browser 故障排查 |
+| `bilibili-to-obsidian` | B站视频提取到 Obsidian |
+| `claude-monitor` | Claude Code 监控 |
+| `config-obsidian` | Obsidian 同步配置 |
+| `creator-skills` | Skills 创建工具 |
+| `fix-neat-video` | 修复 Neat 下载视频 |
+| `github-repo-publish` | GitHub 仓库发布 |
+| `long-running-agent` | 长时间运行 Agent |
+| `video-to-text` | 视频转文字 |
+
+#### 社区 Skills（.agents/skills）
+
+| Skill | 说明 |
+|-------|------|
+| `agent-browser` | 浏览器自动化 |
+| `find-skills` | 发现 Skills |
+| `tauri-v2` | Tauri v2 开发 |
+| `vercel-composition-patterns` | React 组合模式 |
+| `vercel-react-best-practices` | React 最佳实践 |
+| `vercel-react-native-skills` | React Native 技能 |
+| `web-design-guidelines` | Web 设计指南 |
+
 ---
 
 ## 验证安装
@@ -196,8 +239,11 @@ npm list -g --depth=0
 # 检查镜像源
 nrm current
 
-# 检查 skills
+# 检查 j-skills
 j-skills link --list
+
+# 检查 Claude Code Skills
+ls ~/.claude/skills/
 ```
 
 ---
