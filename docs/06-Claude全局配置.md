@@ -216,6 +216,61 @@ CLAUDE.md 是单文件，scp 更简单直接。
 
 Claude Code 启动时会显示 `Contents of ~/.claude/CLAUDE.md`，表示已加载。
 
+### Q: SSH 远程启动 Claude 报 ECONNREFUSED 错误怎么办？
+
+**问题现象**：通过 SSH 远程启动 `cc` 时报错 `API Error: Unable to connect to API (ECONNREFUSED)`，但屏幕共享打开终端启动正常。
+
+**根本原因**：`~/.config/zsh/zshrc` 中的 proxy alias 配置了错误的代理端口。
+
+**排查步骤**：
+
+```bash
+# 1. 检查 debug 日志
+tail -100 ~/.claude/debug/latest | grep -i error
+
+# 2. 检查代理端口是否监听
+nc -zv 127.0.0.1 7890   # ClashX HTTP 代理
+nc -zv 127.0.0.1 10802  # 系统代理
+nc -zv 127.0.0.1 10888  # SOCKS5 代理
+
+# 3. 检查系统代理配置
+scutil --proxy
+```
+
+**解决方案**：
+
+1. 修改 `~/.config/zsh/zshrc` 中的 proxy alias，使用正确的代理端口：
+
+```bash
+# 查看当前配置
+grep 'proxy' ~/.config/zsh/zshrc
+
+# 修复端口（假设系统代理是 10802）
+sed -i '' 's/127.0.0.1:7890/127.0.0.1:10802/g' ~/.config/zsh/zshrc
+```
+
+2. 杀掉残留进程并重启：
+
+```bash
+# 杀掉所有 claude 进程
+pkill -f 'claude'
+pkill -f 'happy-coder'
+
+# 重新加载配置
+source ~/.zshrc
+
+# 重新启动
+cc
+```
+
+**端口对照表**：
+
+| 端口 | 用途 | 软件 |
+|------|------|------|
+| 7890 | HTTP 代理 | ClashX |
+| 10802 | HTTP/HTTPS 代理 | Surge/ClashX Pro |
+| 10888 | SOCKS5 代理 | Surge/ClashX Pro |
+
 ---
 
 ## 下一步
